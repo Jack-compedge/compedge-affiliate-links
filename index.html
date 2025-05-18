@@ -2,196 +2,308 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CompEdge - Competitive Gaming Deals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CompEdge - Competitive Edge for Amazon Sellers</title>
   <style>
-    /* Banner styles */
-    #deal-banner {
-      position: fixed;
-      top: -60px; /* start hidden */
-      left: 0;
-      width: 100%;
-      background: #f0f7ff; /* very light blue-white */
-      color: #1e3a8a; /* deep blue */
-      font-weight: 700;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 1.3rem;
-      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
-      z-index: 9999;
-      animation: slideDown 1s forwards;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    #deal-banner span {
-      display: inline-block;
-      animation: pulseText 3s ease-in-out infinite;
-      color: #1e3a8a; /* start with deep blue */
-    }
-    @keyframes pulseText {
-      0%, 100% {
-        color: #1e3a8a;
-        filter: grayscale(0);
-      }
-      50% {
-        color: #93c5fd; /* lighter blue */
-        filter: grayscale(0.5);
-      }
-    }
-    @keyframes slideDown {
-      from { top: -60px; }
-      to { top: 0; }
-    }
-    @keyframes slideUp {
-      from { top: 0; }
-      to { top: -60px; }
-    }
-
-    /* Page body */
-    body {
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffffff; /* clean white background */
-      color: #1e293b; /* dark blue-gray text */
+      background: #f9fbfc;
+      color: #1e293b;
+      line-height: 1.6;
       overflow-x: hidden;
     }
+    a {
+      text-decoration: none;
+      color: #2563eb;
+      cursor: pointer;
+    }
+    a:hover {
+      color: #1d4ed8;
+    }
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+    /* Header */
     header {
-      background: linear-gradient(135deg, #dbeafe, #bfdbfe); /* lighter blues gradient */
-      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+      padding: 3rem 1rem;
       text-align: center;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(147, 197, 253, 0.3);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgb(59 130 246 / 0.25);
+      margin-bottom: 3rem;
+      animation: fadeInDown 1.5s ease forwards;
     }
     header h1 {
       font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #1e3a8a; /* deep blue */
-      text-shadow: 1px 1px 3px #bfdbfe90;
-      animation: floatIn 2s ease-out forwards;
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+      animation: floatIn 2s ease forwards;
     }
     header p {
       font-size: 1.25rem;
-      color: #2563eb; /* medium blue */
+      color: #475569;
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
+      animation: fadeInUp 2.5s ease forwards;
     }
-    @keyframes floatIn {
-      from {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Nav */
+    nav {
+      display: flex;
+      justify-content: center;
       gap: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    nav a {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    nav a:hover {
+      background: #e0f2fe;
+    }
+    /* Features */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+    .feature {
+      background: white;
       padding: 2rem;
-      background: #eff6ff; /* very light blue background */
-      border-radius: 15px;
-      max-width: 1200px;
-      margin: 2rem auto 4rem;
-      box-shadow: 0 6px 15px rgba(147, 197, 253, 0.2);
-    }
-    .product {
-      background: #ffffff; /* white card background */
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(147, 197, 253, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
       border-radius: 10px;
-      margin-bottom: 0.7rem;
-    }
-    .product h2 {
-      color: #2563eb; /* medium blue */
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-    }
-    .product a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: #93c5fd; /* lighter blue */
-      color: #1e293b; /* dark blue-gray */
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 3px 8px rgba(59, 130, 246, 0.3);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product a:hover {
-      background: #2563eb; /* medium blue */
-      color: #ffffff;
-      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.6);
-    }
-    footer {
-      background: #dbeafe; /* light blue */
+      box-shadow: 0 6px 20px rgb(100 116 139 / 0.1);
+      flex: 1 1 280px;
+      max-width: 320px;
       text-align: center;
-      padding: 1.2rem;
-      font-size: 0.9rem;
-      color: #1e3a8a; /* deep blue */
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
     }
-  </style>
-</head>
-<body>
-  <div id="deal-banner">
-    <span>Limited Time Offer: Save Big on Top Gaming Gear! Shop Now!</span>
-  </div>
-  <header>
-    <h1>CompEdge</h1>
-    <p>Boost your gaming performance with top-tier gear handpicked to give you the competitive edge.</p>
-  </header>
-  <section class="products">
-    <div class="product">
-      <img src="images/61mpMH5TzkL._AC_SX569_.jpg" alt="Logitech G502 HERO" />
-      <h2>Logitech G502 HERO Gaming Mouse</h2>
-      <a href="https://amzn.to/44JXXbA" target="_blank">Buy on Amazon</a>
-    </div>
-    <div class="product">
-      <img src="images/81vWntXa1tL._AC_SX569_.jpg" alt="KontrolFreek Precision Rings" />
-      <h2>KontrolFreek Precision Rings</h2>
-      <a href="https://amzn.to/3GY8cPv" target="_blank">Buy on Amazon</a>
-    </div>
-    <div class="product">
-      <img src="images/61MC8BK0w0L._AC_SX569_.jpg" alt="AULA F75 Pro Keyboard" />
-      <h2>AULA F75 Pro Mechanical Keyboard</h2>
-      <a href="https://amzn.to/434LlKP" target="_blank">Buy on Amazon</a>
-    </div>
-    <div class="product">
-      <img src="images/51UCF1KOnKL._AC_SX679_.jpg" alt="Redragon M810 Pro Mouse" />
-      <h2>Redragon M810 Pro Wireless Mouse</h2>
-      <a href="https://amzn.to/3H0ivT3" target="_blank">Buy on Amazon</a>
-    </div>
-    <div class="product">
-      <img src="images/51FRJHB7XOL._AC_SX679_.jpg" alt="Razer BlackShark V2 X" />
-      <h2>Razer BlackShark V2 X Headset</h2>
-      <a href="https://amzn.to/433qvvj" target="_blank">Buy on Amazon</a>
-    </div>
-  </section>
-  <footer>
-    © 2025 CompEdge. As an Amazon Associate, we may earn commissions from qualifying purchases.
-  </footer>
-
-  <script>
-    // Slide banner up and remove after 5 seconds
-    setTimeout(() => {
-      const banner = document.getElementById('deal-banner');
-      banner.style.animation = 'slideUp 1s forwards';
-      setTimeout(() => banner.remove(), 1000);
-    }, 5000);
-  </script>
-</body>
-</html>
+    .feature:nth-child(1) { animation-delay: 0.3s; }
+    .feature:nth-child(2) { animation-delay: 0.6s; }
+    .feature:nth-child(3) { animation-delay: 0.9s; }
+    .feature h3 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .feature p {
+      color: #475569;
+      font-size: 1rem;
+    }
+    /* Pricing */
+    .pricing {
+      background: #e0f2fe;
+      padding: 3rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgb(59 130 246 / 0.15);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .pricing h2 {
+      color: #1e40af;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      animation: fadeInDown 1s ease forwards;
+    }
+    .plans {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .plan {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgb(100 116 139 / 0.15);
+      padding: 2rem 2.5rem;
+      flex: 1 1 260px;
+      max-width: 320px;
+      transition: transform 0.3s ease;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    .plan:nth-child(1) { animation-delay: 0.4s; }
+    .plan:nth-child(2) { animation-delay: 0.7s; }
+    .plan:nth-child(3) { animation-delay: 1s; }
+    .plan:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgb(59 130 246 / 0.3);
+    }
+    .plan h3 {
+      color: #2563eb;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .plan .price {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+    .plan ul {
+      list-style: none;
+      margin-bottom: 2rem;
+      color: #475569;
+      text-align: left;
+      padding-left: 0;
+    }
+    .plan ul li {
+      margin-bottom: 0.75rem;
+    }
+    .plan button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .plan button:hover {
+      background: #1d4ed8;
+    }
+    /* About & Contact Sections */
+    section.about, section.contact {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgb(100 116 139 / 0.12);
+      animation: fadeInUp 1s ease forwards;
+    }
+    section.about h2, section.contact h2 {
+      color: #2563eb;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    section.about p, section.contact p {
+      color: #475569;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+    }
+    /* Signup/Login Modal */
+    .modal-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30,41,59,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-bg.active {
+      display: flex;
+      animation: fadeIn 0.3s ease forwards;
+    }
+    .modal {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 25px rgb(59 130 246 / 0.3);
+      position: relative;
+      animation: slideDown 0.4s ease forwards;
+    }
+    .modal h3 {
+      color: #2563eb;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .modal label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #475569;
+    }
+    .modal input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .modal input:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
+    .modal button.submit-btn {
+      margin-top: 2rem;
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .modal button.submit-btn:hover {
+      background: #1d4ed8;
+    }
+    .modal .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #94a3b8;
+      transition: color 0.3s ease;
+    }
+    .modal .close-btn:hover {
+      color: #2563eb;
+    }
+    /* Animations */
+    @keyframes floatIn {
+      0% {opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    @key
