@@ -264,8 +264,8 @@
       width: 100%;
       background: #2563eb;
       color: white;
-      padding: 0.75rem;
       border: none;
+      padding: 0.75rem;
       border-radius: 6px;
       font-size: 1.1rem;
       cursor: pointer;
@@ -306,4 +306,93 @@
       0% {opacity: 0;}
       100% {opacity: 1;}
     }
-    @key
+    @keyframes slideDown {
+      0% {opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CompEdge</h1>
+    <p>Gain the competitive edge for your Amazon FBA business with automated competitor tracking.</p>
+  </header>
+
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+    <section id="features" class="features">
+      <div class="feature">
+        <h3>Automated Price Tracking</h3>
+        <p>Keep tabs on your competitor’s prices automatically without manual effort.</p>
+      </div>
+      <div class="feature">
+        <h3>Review Monitoring</h3>
+        <p>Track customer reviews on your products and competitors in real time.</p>
+      </div>
+      <div class="feature">
+        <h3>Easy Dashboard</h3>
+        <p>Simple, intuitive dashboard to visualize your competitive landscape.</p>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <h2>Pricing Plans</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Basic</h3>
+          <p class="price">$29 / month</p>
+          <ul>
+            <li>Up to 5 tracked products</li>
+            <li>Email alerts</li>
+            <li>Basic support</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+        <div class="plan">
+          <h3>Pro</h3>
+          <p class="price">$50 / month</p>
+          <ul>
+            <li>Up to 25 tracked products</li>
+            <li>Priority email support</li>
+            <li>Advanced analytics</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+        <div class="plan">
+          <h3>Enterprise</h3>
+          <p class="price">Contact Us</p>
+          <ul>
+            <li>Unlimited tracked products</li>
+            <li>Dedicated account manager</li>
+            <li>Custom analytics and reports</li>
+          </ul>
+          <button>Contact Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About CompEdge</h2>
+      <p>We provide Amazon sellers with automated tools to track competitor pricing and reviews, helping you make informed business decisions and grow your brand.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>Have questions? Reach out and we’ll get back to you as soon as possible.</p>
+      <p>Email: support@compedge.com</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CompEdge. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
