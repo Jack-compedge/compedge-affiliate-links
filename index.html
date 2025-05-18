@@ -102,7 +102,36 @@
       color: #1e3a8a;
       text-shadow: 1px 1px 3px #bfdbfe90;
       animation: floatIn 1.5s ease forwards;
+
+      /* Flex layout for title + banner */
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
+    /* Animated banner next to title */
+    .animated-banner {
+      background: linear-gradient(270deg, #f97316, #fb923c, #f59e0b, #f97316);
+      background-size: 800% 800%;
+      animation: gradientShift 10s ease infinite;
+      color: white;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: 14px;
+      box-shadow: 0 0 8px #f97316aa;
+      user-select: none;
+      min-width: 180px;
+      text-align: center;
+      font-size: 1.2rem;
+      white-space: nowrap;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header p {
       font-size: 1.3rem;
       color: #2563eb;
@@ -283,120 +312,4 @@
     footer {
       background: #dbeafe;
       text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-      color: #1e3a8a;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-      user-select: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 500px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.1rem;
-      }
-      .products {
-        padding: 1rem;
-        gap: 1.2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Sticky banner with close -->
-  <div id="deal-banner" role="region" aria-live="polite" aria-label="Limited Time Offer Banner">
-    <span>Limited Time Offer: Save Big on Top Gaming Gear! Hurry, offer ends soon!</span>
-    <button class="close-btn" aria-label="Close promotional banner">&times;</button>
-  </div>
-
-  <header>
-    <h1>CompEdge</h1>
-    <p>Boost your gaming performance with top-tier gear handpicked to give you the competitive edge.</p>
-  </header>
-
-  <section class="products" aria-label="Featured gaming products">
-    <div class="product" tabindex="0" aria-describedby="desc1">
-      <img src="images/61mpMH5TzkL._AC_SX569_.jpg" alt="Logitech G502 HERO Gaming Mouse" />
-      <h2 class="tooltip">Logitech G502 HERO Gaming Mouse
-        <span class="tooltiptext">High precision 16K DPI sensor, customizable buttons, RGB lighting.</span>
-      </h2>
-      <div class="stars" aria-label="Customer rating: 4.7 out of 5 stars">★★★★☆</div>
-      <span class="badge">Hot Deal</span>
-      <a href="https://amzn.to/44JXXbA" target="_blank" rel="noopener" aria-label="Buy Logitech G502 HERO Gaming Mouse on Amazon">Buy Now</a>
-    </div>
-
-    <div class="product" tabindex="0" aria-describedby="desc2">
-      <img src="images/81vWntXa1tL._AC_SX569_.jpg" alt="KontrolFreek Precision Rings" />
-      <h2 class="tooltip">KontrolFreek Precision Rings
-        <span class="tooltiptext">Improve your aim and comfort with ergonomic thumb rings.</span>
-      </h2>
-      <div class="stars" aria-label="Customer rating: 4.4 out of 5 stars">★★★★☆</div>
-      <a href="https://amzn.to/3GY8cPv" target="_blank" rel="noopener" aria-label="Buy KontrolFreek Precision Rings on Amazon">Buy Now</a>
-    </div>
-
-    <div class="product" tabindex="0" aria-describedby="desc3">
-      <img src="images/61MC8BK0w0L._AC_SX569_.jpg" alt="AULA F75 Pro Mechanical Keyboard" />
-      <h2 class="tooltip">AULA F75 Pro Mechanical Keyboard
-        <span class="tooltiptext">RGB backlight, blue switches, ergonomic design for fast typing.</span>
-      </h2>
-      <div class="stars" aria-label="Customer rating: 4.5 out of 5 stars">★★★★☆</div>
-      <a href="https://amzn.to/434LlKP" target="_blank" rel="noopener" aria-label="Buy AULA F75 Pro Mechanical Keyboard on Amazon">Buy Now</a>
-    </div>
-
-    <div class="product" tabindex="0" aria-describedby="desc4">
-      <img src="images/51UCF1KOnKL._AC_SX679_.jpg" alt="Redragon M810 Pro Wireless Mouse" />
-      <h2 class="tooltip">Redragon M810 Pro Wireless Mouse
-        <span class="tooltiptext">Wireless freedom, customizable DPI, ergonomic grip.</span>
-      </h2>
-      <div class="stars" aria-label="Customer rating: 4.3 out of 5 stars">★★★★☆</div>
-      <span class="badge">Limited Stock</span>
-      <a href="https://amzn.to/3H0ivT3" target="_blank" rel="noopener" aria-label="Buy Redragon M810 Pro Wireless Mouse on Amazon">Buy Now</a>
-    </div>
-
-    <div class="product" tabindex="0" aria-describedby="desc5">
-      <img src="images/51FRJHB7XOL._AC_SX679_.jpg" alt="Razer BlackShark V2 X Headset" />
-      <h2 class="tooltip">Razer BlackShark V2 X Headset
-        <span class="tooltiptext">Crystal clear sound, noise isolation, lightweight comfort.</span>
-      </h2>
-      <div class="stars" aria-label="Customer rating: 4.6 out of 5 stars">★★★★☆</div>
-      <a href="https://amzn.to/433qvvj" target="_blank" rel="noopener" aria-label="Buy Razer BlackShark V2 X Headset on Amazon">Buy Now</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 CompEdge. As an Amazon Associate, we may earn commissions from qualifying purchases.
-  </footer>
-
-  <script>
-    // Banner close button handler
-    document.querySelector('#deal-banner .close-btn').addEventListener('click', () => {
-      const banner = document.getElementById('deal-banner');
-      banner.style.animation = 'slideUp 0.7s forwards';
-      setTimeout(() => banner.remove(), 700);
-    });
-
-    // Automatically close banner after 7 seconds
-    setTimeout(() => {
-      const banner = document.getElementById('deal-banner');
-      if (banner) {
-        banner.style.animation = 'slideUp 0.7s forwards';
-        setTimeout(() => banner.remove(), 700);
-      }
-    }, 7000);
-
-    // Optional: add smooth scroll for internal links if you add them later
-    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    //   anchor.addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     document.querySelector(this.getAttribute('href')).scrollIntoView({
-    //       behavior: 'smooth'
-    //     });
-    //   });
-    // });
-  </script>
-</body>
-</html>
+      padding: 1.5rem
